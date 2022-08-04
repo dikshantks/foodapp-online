@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+
+        {
+            "name": "tmp_online",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "tmp_online (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "tmp_online (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "Android 1",
+            "request": "launch",
+            "deviceId": "emulator-5554",
+            "type": "dart",
+        },
+        {
+            "name": "Android2",
+            "request": "launch",
+            "deviceId": "emulator-5556",
+            "type": "dart",
+        }
+    ],
+    "compounds": [
+        {
+            "name": "2 devices",
+            "configurations": ["Android 1","Android2"]
+        }
+    ]
+}

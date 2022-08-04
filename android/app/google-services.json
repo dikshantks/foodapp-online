@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1015393617105",
+    "project_id": "uni-food-app",
+    "storage_bucket": "uni-food-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015393617105:android:6403d3eb3e6471a7a331f0",
+        "android_client_info": {
+          "package_name": "com.example.tmp_online"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1015393617105-urkitieig30jgan724b7hnfsic2m038m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4ULKt6HhXckO8EFG2bbW_nDXK8_j4mOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1015393617105-urkitieig30jgan724b7hnfsic2m038m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1015393617105-spnqo87o6f3lt4hh5v5v9ndhfq87r3a4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tmpOnline"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
