@@ -23,11 +23,10 @@ class LogInForm extends StatelessWidget {
             validator: emaildValidator,
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: "Email address",
               prefixIcon: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: defaultPadding * 0.75),
+                padding: EdgeInsets.symmetric(vertical: defaultPadding * 0.75),
                 child: Icon(
                   Icons.mail_outlined,
                 ),
@@ -41,11 +40,10 @@ class LogInForm extends StatelessWidget {
             },
             validator: passwordValidator,
             obscureText: true,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: "Password",
               prefixIcon: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: defaultPadding * 0.75),
+                padding: EdgeInsets.symmetric(vertical: defaultPadding * 0.75),
                 child: Icon(
                   Icons.lock,
                 ),

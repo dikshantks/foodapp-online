@@ -43,56 +43,32 @@ class _HomeScreenWithMenuState extends State<HomeScreenWithMenu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  FlutterLogo(
-                    size: 80,
-                  ),
-                  Text('Name'),
-                  Text('Email'),
-                ],
-              ),
+      endDrawer: Drawer(
+        child: ListView(padding: EdgeInsets.zero, children: <Widget>[
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.blue,
             ),
-            ListTile(
-              title: Text('Home'),
-              onTap: () {
-                Navigator.pushNamed(context, '/home');
-              },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                FlutterLogo(
+                  size: 80,
+                ),
+                Text('Name'),
+                Text('Email'),
+              ],
             ),
-            ListTile(
-              title: Text('Cart'),
-              onTap: () {
-                Navigator.pushNamed(context, '/cart');
-              },
-            ),
-            ListTile(
-              title: Text('Orders'),
-            ),
-            ListTile(
-              title: Text('Settings'),
-            ),
-            ListTile(
-              title: Text('Home'),
-              onTap: () {},
-              // You can write the navigation code in this block of function,
-              // So you can navigate to the other page.
-            ),
-            ListTile(
-              title: Text('Settings'),
-              onTap: () {},
-              // To make the list tile clickable I added empty function block
-            ),
-          ],
-        ),
+          ),
+          ListTile(
+            title: Text('yohohoh'),
+            onTap: () {},
+          ),
+          ListTile(
+            title: Text('Sign Out'),
+            onTap: () {},
+          )
+        ]),
       ),
       appBar: AppBar(
         actions: [
