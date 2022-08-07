@@ -1,13 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../classes/backend/favitem/bloc/fav_bloc.dart';
 import 'constants.dart';
 import '../tests/menu_test.dart';
 
-class MenuCard extends StatefulWidget {
-  MenuCard({
+class FavCard extends StatefulWidget {
+  FavCard({
     Key? key,
     required this.currentItem,
     required this.onpress,
@@ -19,10 +18,10 @@ class MenuCard extends StatefulWidget {
   MenuItems currentItem;
 
   @override
-  State<MenuCard> createState() => _MenuCardState();
+  State<FavCard> createState() => _FavCardState();
 }
 
-class _MenuCardState extends State<MenuCard> {
+class _FavCardState extends State<FavCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -68,19 +67,19 @@ class _MenuCardState extends State<MenuCard> {
                             widget.iswishlist = false;
                           });
                           context.read<FavBloc>().add(
-                                AddfavProduct(widget.currentItem),
+                                RemovefavProduct(widget.currentItem),
                               );
 
                           final snackbar = SnackBar(
                               duration: Duration(milliseconds: 300),
-                              content: Text('added to Favo'));
+                              content: Text('removed from Fav'));
 
                           ScaffoldMessenger.of(context).showSnackBar(snackbar);
                         },
                         icon: Icon(
                           widget.iswishlist
-                              ? Icons.favorite
-                              : Icons.favorite_outline,
+                              ? Icons.remove
+                              : Icons.remove_circle_outline,
                           color: Colors.red,
                         ));
                   },

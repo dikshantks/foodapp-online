@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:tmp_online/screens/favorite_screen.dart';
 import 'package:tmp_online/tests/menu_test.dart';
 import '../components/menu_card.dart';
-import '../constants.dart';
+import '../components/constants.dart';
 
 class HomeScreenWithMenu extends StatefulWidget {
   const HomeScreenWithMenu({Key? key}) : super(key: key);
@@ -61,12 +61,10 @@ class _HomeScreenWithMenuState extends State<HomeScreenWithMenu> {
             ),
           ),
           ListTile(
-            title: Text('yohohoh'),
-            onTap: () {},
-          ),
-          ListTile(
             title: Text('Sign Out'),
-            onTap: () {},
+            onTap: () {
+              Navigator.popAndPushNamed(context, '/');
+            },
           )
         ]),
       ),
@@ -95,7 +93,7 @@ class _HomeScreenWithMenuState extends State<HomeScreenWithMenu> {
             ),
             Text('foodme'),
             Text(
-              "Onine",
+              "Online",
               style: TextStyle(
                 color: purpleColor,
               ),

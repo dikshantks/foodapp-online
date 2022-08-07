@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:tmp_online/classes/backend/favitem/bloc/fav_bloc.dart';
+import 'package:tmp_online/components/favitem_card.dart';
 
 import '../components/menu_card.dart';
 import '../tests/menu_test.dart';
@@ -23,12 +25,25 @@ class _FavouriteItemScreenState extends State<FavouriteItemScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ListView.builder(
-        itemCount: favorite_item.length,
-        itemBuilder: (context, index) => MenuCard(
-          onpress: () {},
-          currentItem: favorite_item[index],
-        ),
+      child: BlocBuilder<FavBloc, FavState>(
+        builder: (context, state) {
+          if (state is FavListLoaded) {
+            return ListView.builder(
+              itemCount: state.favItemModal.Favitems.length,
+              itemBuilder: (context, index) => FavCard(
+                // iswishlist: true,
+                onpress: () {},
+                currentItem: state.favItemModal.Favitems[index],
+              ),
+            );
+          } else if (state is FavListLoading) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return Text('something is wrong');
+          }
+        },
       ),
     );
   }

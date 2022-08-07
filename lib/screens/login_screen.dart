@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:tmp_online/constants.dart';
+import 'package:tmp_online/components/constants.dart';
 import 'package:tmp_online/screens/home_screen_menu.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -51,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
             SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.5),
+                    top: MediaQuery.of(context).size.height * 0.4),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -94,12 +94,14 @@ class _LoginScreenState extends State<LoginScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
                                 child: Text(
-                                  'or login instead',
+                                  'register',
                                   style: TextStyle(
-                                      debugLabel: 'gdfgd',
-                                      color: successColor,
+                                      debugLabel: 'hehe',
+                                      color: primaryMaterialColor.shade400,
                                       fontWeight: FontWeight.w600),
                                 ),
                               ),

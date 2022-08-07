@@ -1,28 +1,30 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../classes/backend/favitem/bloc/fav_bloc.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+
 import 'constants.dart';
 import '../tests/menu_test.dart';
 
-class MenuCard extends StatefulWidget {
-  MenuCard({
-    Key? key,
-    required this.currentItem,
-    required this.onpress,
-  }) : super(key: key);
+class MyWidget extends StatefulWidget {
+  MyWidget(
+      {Key? key,
+      required this.currentItem,
+      required this.iswishlist,
+      required this.onpress})
+      : super(key: key);
 
-  bool iswishlist = false;
+  final bool iswishlist;
   void onpress;
 
   MenuItems currentItem;
 
   @override
-  State<MenuCard> createState() => _MenuCardState();
+  State<MyWidget> createState() => _MyWidgetState();
 }
 
-class _MenuCardState extends State<MenuCard> {
+class _MyWidgetState extends State<MyWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,22 +35,22 @@ class _MenuCardState extends State<MenuCard> {
       margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 12.0),
       width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: 10.0),
-      height: 155.0,
+      height: 150.0,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Container(
-            padding: EdgeInsets.all(5.0),
+            padding: EdgeInsets.all(10.0),
             // color: Colors.blue,
             width: 150.0,
             alignment: Alignment.topLeft,
             child: Column(
               children: [
                 Text(
-                  widget.currentItem.name,
+                  "${widget.currentItem.name}",
                 ),
                 SizedBox(
-                  height: 5.0,
+                  height: 10.0,
                 ),
                 Text(
                   'Rs ${widget.currentItem.price}',
@@ -58,33 +60,25 @@ class _MenuCardState extends State<MenuCard> {
                   ),
                 ),
                 SizedBox(
-                  height: 5.0,
+                  height: 10.0,
                 ),
-                BlocBuilder<FavBloc, FavState>(
-                  builder: (context, state) {
-                    return IconButton(
-                        onPressed: () {
-                          setState(() {
-                            widget.iswishlist = false;
-                          });
-                          context.read<FavBloc>().add(
-                                AddfavProduct(widget.currentItem),
-                              );
-
-                          final snackbar = SnackBar(
-                              duration: Duration(milliseconds: 300),
-                              content: Text('added to Favo'));
-
-                          ScaffoldMessenger.of(context).showSnackBar(snackbar);
-                        },
+                widget.iswishlist
+                    ? IconButton(
+                        onPressed: () => widget.onpress,
                         icon: Icon(
-                          widget.iswishlist
-                              ? Icons.favorite
-                              : Icons.favorite_outline,
+                          Icons.favorite,
                           color: Colors.red,
-                        ));
-                  },
-                )
+                          semanticLabel: 'Save',
+                        ),
+                      )
+                    : IconButton(
+                        onPressed: () => widget.onpress,
+                        icon: Icon(
+                          Icons.favorite_border,
+                          color: Colors.red,
+                          semanticLabel: 'Not Save',
+                        ),
+                      )
               ],
             ),
           ),
