@@ -100,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 child: Text(
                                   'register',
                                   style: TextStyle(
-                                      debugLabel: 'hehe',
+                                      debugLabel: 'hehke',
                                       color: primaryMaterialColor.shade400,
                                       fontWeight: FontWeight.w600),
                                 ),
