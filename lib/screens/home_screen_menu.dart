@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tmp_online/classes/backend/product_bloc/bloc/prodcut_bloc.dart';
 import 'package:tmp_online/screens/favorite_screen.dart';
 import 'package:tmp_online/tests/menu_test.dart';
 import '../components/menu_card.dart';
@@ -158,12 +160,24 @@ class _MenuScreenState extends State<MenuScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ListView.builder(
-        itemCount: widget.sample1.length,
-        itemBuilder: (context, index) => MenuCard(
-          onpress: onpress,
-          currentItem: widget.sample1[index],
-        ),
+      child: BlocBuilder<ProdcutBloc, ProdcutState>(
+        builder: (context, state) {
+          if (state is ProdcutLoading) {
+            return CircularProgressIndicator();
+          } else if (state is ProdcutLoaded) {
+            return ListView.builder(
+              itemCount: widget.sample1.length,
+              itemBuilder: (context, index) => MenuCard(
+                onpress: onpress,
+                currentItem: widget.sample1[index],
+              ),
+            );
+          } else {
+            return Center(
+              child: Text("Something went wrong "),
+            );
+          }
+        },
       ),
     );
   }
