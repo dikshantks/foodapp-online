@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1015393617105",
+    "firebase_url": "https://uni-food-app-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "uni-food-app",
     "storage_bucket": "uni-food-app.appspot.com"
   },
