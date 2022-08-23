@@ -41,7 +41,7 @@ class _FavouriteItemScreenState extends State<FavouriteItemScreen> {
               child: CircularProgressIndicator(),
             );
           } else {
-            return Text('something is wrong');
+            return Text('sometng is wrong');
           }
         },
       ),

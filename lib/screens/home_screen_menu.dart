@@ -24,7 +24,7 @@ class _HomeScreenWithMenuState extends State<HomeScreenWithMenu> {
     Container(
       color: whiteColor,
       child: Center(
-        child: Text('my nam '),
+        child: Text('my name'),
       ),
     ),
     Center(
