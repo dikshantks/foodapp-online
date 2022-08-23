@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1015393617105',
     projectId: 'uni-food-app',
     storageBucket: 'uni-food-app.appspot.com',
-    iosClientId: '1015393617105-spnqo87o6f3lt4hh5v5v9ndhfq87r3a4.apps.googleusercontent.com',
+    iosClientId:
+        '1015393617105-spnqo87o6f3lt4hh5v5v9ndhfq87r3a4.apps.googleusercontent.com',
     iosBundleId: 'com.example.tmpOnline',
   );
 }
