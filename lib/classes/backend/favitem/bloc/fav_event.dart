@@ -10,7 +10,7 @@ abstract class FavEvent extends Equatable {
 class StarItem extends FavEvent {}
 
 class AddfavProduct extends FavEvent {
-  final MenuItems menuItem;
+  final Products menuItem;
 
   const AddfavProduct(this.menuItem);
 
@@ -19,7 +19,7 @@ class AddfavProduct extends FavEvent {
 }
 
 class RemovefavProduct extends FavEvent {
-  final MenuItems menuItem;
+  final Products menuItem;
 
   const RemovefavProduct(this.menuItem);
 

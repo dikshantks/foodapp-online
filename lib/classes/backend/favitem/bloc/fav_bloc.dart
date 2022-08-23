@@ -3,6 +3,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:tmp_online/classes/Modal/fav.dart';
+import 'package:tmp_online/classes/menu_items/menu_item_model.dart';
 import 'package:tmp_online/tests/menu_test.dart';
 
 part 'fav_event.dart';

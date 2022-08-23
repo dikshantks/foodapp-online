@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tmp_online/classes/backend/product_bloc/bloc/prodcut_bloc.dart';
+import 'package:tmp_online/classes/menu_items/menu_item_model.dart';
 import 'package:tmp_online/screens/favorite_screen.dart';
 import 'package:tmp_online/tests/menu_test.dart';
 import '../components/menu_card.dart';
@@ -18,11 +19,11 @@ class HomeScreenWithMenu extends StatefulWidget {
 class _HomeScreenWithMenuState extends State<HomeScreenWithMenu> {
   int currentIndex = 0;
 
-  List<MenuItems> favorite = [sample[3]];
+  List<Products> favorite = [];
 
   List<Widget> scafflod = [
-    MenuScreen(fav: [], sample1: sample),
-    FavouriteItemScreen(favorite_item: [sample[2], sample[1]]),
+    MenuScreen(fav: [], sample1: []),
+    FavouriteItemScreen(favorite_item: []),
     Container(
       color: whiteColor,
       child: Center(
@@ -146,9 +147,9 @@ class MenuScreen extends StatefulWidget {
     required this.fav,
   }) : super(key: key);
 
-  late List<MenuItems> fav;
+  late List<Products> fav;
 
-  final List<MenuItems> sample1;
+  final List<Products> sample1;
 
   @override
   State<MenuScreen> createState() => _MenuScreenState();
@@ -163,13 +164,13 @@ class _MenuScreenState extends State<MenuScreen> {
       child: BlocBuilder<ProdcutBloc, ProdcutState>(
         builder: (context, state) {
           if (state is ProdcutLoading) {
-            return CircularProgressIndicator();
+            return Center(child: CircularProgressIndicator());
           } else if (state is ProdcutLoaded) {
             return ListView.builder(
-              itemCount: widget.sample1.length,
+              itemCount: state.products.length,
               itemBuilder: (context, index) => MenuCard(
                 onpress: onpress,
-                currentItem: widget.sample1[index],
+                currentItem: state.products[index]!,
               ),
             );
           } else {

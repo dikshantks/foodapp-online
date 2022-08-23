@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tmp_online/classes/menu_items/menu_item_model.dart';
 import '../classes/backend/favitem/bloc/fav_bloc.dart';
 import 'constants.dart';
 import '../tests/menu_test.dart';
@@ -16,7 +17,9 @@ class MenuCard extends StatefulWidget {
   bool iswishlist = false;
   void onpress;
 
-  MenuItems currentItem;
+  Products currentItem;
+
+  // MenuItems currentItem;
 
   @override
   State<MenuCard> createState() => _MenuCardState();

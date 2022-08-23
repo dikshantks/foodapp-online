@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tmp_online/classes/menu_items/menu_item_model.dart';
 import '../classes/backend/favitem/bloc/fav_bloc.dart';
 import 'constants.dart';
 import '../tests/menu_test.dart';
@@ -15,7 +16,7 @@ class FavCard extends StatefulWidget {
   bool iswishlist = false;
   void onpress;
 
-  MenuItems currentItem;
+  Products currentItem;
 
   @override
   State<FavCard> createState() => _FavCardState();

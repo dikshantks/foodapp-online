@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (_) => ProdcutBloc(
               productRepo: ProductRepo(),
-            ),
+            )..add(LoadProducts()),
           ),
           BlocProvider(
             create: (context) => AuthBloc(

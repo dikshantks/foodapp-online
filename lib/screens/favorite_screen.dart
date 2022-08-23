@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:tmp_online/classes/backend/favitem/bloc/fav_bloc.dart';
+import 'package:tmp_online/classes/menu_items/menu_item_model.dart';
 import 'package:tmp_online/components/favitem_card.dart';
 
 import '../components/menu_card.dart';
@@ -11,7 +12,7 @@ class FavouriteItemScreen extends StatefulWidget {
   FavouriteItemScreen({Key? key, required this.favorite_item})
       : super(key: key);
 
-  final List<MenuItems> favorite_item;
+  final List<Products> favorite_item;
 
   @override
   State<FavouriteItemScreen> createState() =>
@@ -19,7 +20,7 @@ class FavouriteItemScreen extends StatefulWidget {
 }
 
 class _FavouriteItemScreenState extends State<FavouriteItemScreen> {
-  final List<MenuItems> favorite_item;
+  final List<Products> favorite_item;
 
   _FavouriteItemScreenState(this.favorite_item);
   @override

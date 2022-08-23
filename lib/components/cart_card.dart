@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:tmp_online/classes/menu_items/menu_item_model.dart';
 
 import 'constants.dart';
 import '../tests/menu_test.dart';
@@ -18,7 +19,7 @@ class MyWidget extends StatefulWidget {
   final bool iswishlist;
   void onpress;
 
-  MenuItems currentItem;
+  Products currentItem;
 
   @override
   State<MyWidget> createState() => _MyWidgetState();
