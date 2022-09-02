@@ -1,10 +1,10 @@
-# tmp_online
+# Foodapp_online
 
-A new Flutter project.
+a clone of haldiram restraunt management/food orderring webpage as an app. 
 
-## Getting Started
+## Getting Started  
 
-This project is a starting point for a Flutter application.
+
 
 A few resources to get you started if this is your first Flutter project:
 
