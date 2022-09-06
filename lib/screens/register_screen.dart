@@ -18,7 +18,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return BlocListener<AuthBloc, AuthState>(
-      listenWhen: (previous, current) => previous.authUser != current.authUser,
+      listenWhen: (previous, current) => previous.user != current.user,
       listener: (context, state) {
         print('SPLASH SCREEN AUTH LSITERNET ');
       },

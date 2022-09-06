@@ -6,11 +6,10 @@ class Products extends Equatable {
   final String name;
   final String imgURl;
   final int price;
-
   final String uid;
 
   const Products({
-    this.uid = '  ',
+    this.uid = '',
     required this.imgURl,
     required this.name,
     required this.price,

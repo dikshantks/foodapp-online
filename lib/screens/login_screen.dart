@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             decoration: InputDecoration(
                                 fillColor: Colors.grey.shade100,
                                 filled: true,
-                                hintText: "enter university id",
+                                hintText: "enter id",
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),

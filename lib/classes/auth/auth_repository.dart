@@ -1,20 +1,33 @@
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tmp_online/classes/auth/base_auth_repo.dart';
 
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 
-class AuthRepo extends BaseauthRepo {
+import '../usermodal/user_modal.dart';
+
+class AuthRepo {
   final auth.FirebaseAuth _firebaseauth;
 
   AuthRepo({auth.FirebaseAuth? firebaseAuth})
       : _firebaseauth = firebaseAuth ?? auth.FirebaseAuth.instance;
 
-  @override
-  Future<void> Signout() async {
-    await _firebaseauth.signOut();
+  var currentUser = User.empty;
+
+  Stream<User> get user {
+    return _firebaseauth.authStateChanges().map((firebaseUser) {
+      final user = firebaseUser == null ? User.empty : firebaseUser.toUser;
+      currentUser = user;
+      return user;
+    });
   }
 
-  @override
-  Future<auth.User?> Signup(
+  // @override
+  Future<void> signout() async {
+    await Future.wait([_firebaseauth.signOut()]);
+  }
+
+  // @override
+  Future<auth.User?> signup(
       {required String emai,
       required String name,
       required String password,
@@ -28,14 +41,13 @@ class AuthRepo extends BaseauthRepo {
       final user = credential.user;
 
       return user;
-    } catch (e) {}
+    } catch (_) {}
   }
 
-  @override
-  // TODO: implement User
-  Stream<auth.User?> get User => _firebaseauth.userChanges();
+  // @override
+  // // Stream<auth.User?> get User => _firebaseauth.userChanges();
 
-  @override
+  // @override
   Future<void> loginwithEmailandPassword({
     required String emai,
     required String password,
@@ -45,6 +57,17 @@ class AuthRepo extends BaseauthRepo {
         email: emai,
         password: password,
       );
-    } catch (e) {}
+    } catch (_) {}
+  }
+}
+
+extension on auth.User {
+  User get toUser {
+    return User(
+      contact: phoneNumber,
+      id: uid,
+      email: email,
+      name: displayName,
+    );
   }
 }

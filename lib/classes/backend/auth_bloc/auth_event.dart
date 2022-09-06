@@ -20,3 +20,5 @@ class AuthUserChanged extends AuthEvent {
   @override
   List<Object?> get props => [authUser, user];
 }
+
+class AppLogoutRequest extends AuthEvent {}

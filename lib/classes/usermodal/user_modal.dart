@@ -1,22 +1,30 @@
+import 'dart:async';
+
 import 'package:equatable/equatable.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class User extends Equatable {
-  final String? id;
-  final String name;
-  final String email;
-  final String contact;
-
+  final String id;
+  final String? name;
+  final String? email;
+  final String? contact;
   final String? role;
 
-  User({
+  const User({
     this.role,
-    this.id,
-    required this.name,
-    required this.email,
-    required this.contact,
+    required this.id,
+    this.name,
+    this.email,
+    this.contact,
   });
+
+  static const empty = User(id: '');
+
+  bool get isEmpty => this == User.empty;
+
+  bool get isNotEmpty => this != User.empty;
 
   User copywith({
     String? role,
@@ -44,13 +52,15 @@ class User extends Equatable {
 
   Map<String, Object> toDocument() {
     return {
-      'name': name,
-      'useremail': email,
-      'usercontact': contact,
+      'name': name!,
+      'useremail': email!,
+      'usercontact': contact!,
     };
   }
 
   @override
   // TODO: implement props
-  List<Object?> get props => [id, name, email, contact];
+  List<Object?> get props => [id, name, email, contact, role];
+
+  // StreamSubscription<User?> listen(Null Function(dynamic authuser) param0) {}
 }
